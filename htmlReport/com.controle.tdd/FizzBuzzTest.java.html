@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FizzBuzzTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">test.exec</a> &gt; <a href="index.source.html" class="el_package">com.controle.tdd</a> &gt; <span class="el_source">FizzBuzzTest.java</span></div><h1>FizzBuzzTest.java</h1><pre class="source lang-java linenums">/*
+FizzBuzz.de(1) -&gt; &quot;1&quot;
+FizzBuzz.de(3) -&gt; &quot;Fizz&quot;
+FizzBuzz.de(5) -&gt; &quot;Buzz&quot;
+FizzBuzz.de(9) -&gt; &quot;Fizz&quot;
+FizzBuzz.de(10) -&gt; &quot;Buzz&quot;
+FizzBuzz.de(15) -&gt; &quot;FizzBuzz&quot;
+ */
+
+/*
+J'ai choisi cette liste-là car elle commence par le premier chiffre (1) puis on prend le premier chiffre qui donne Fizz donc le premier chiffre divisible par 3 (3)
+puis celui qui donne Buzz donc divisible par 5 (5) puis on prend un autre nombre pour lequel on peut diviser plusieurs fois par 3 (9) et un autre pour 5 (10)
+et pour finir, on prend un nombre divisible par 3 et 5 pour avoir FizzBuzz (15).
+ */
+
+package com.controle.tdd;
+
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
+<span class="fc" id="L28">public class FizzBuzzTest {</span>
+    @Test
+    void fizzBuzz_de_1_devrait_retourner_1() {
+        // GIVEN / WHEN
+<span class="fc" id="L32">        String resultat = FizzBuzz.de(1);</span>
+
+        // THEN
+<span class="fc" id="L35">        assertThat(resultat).isEqualTo(&quot;1&quot;);</span>
+<span class="fc" id="L36">    }</span>
+
+    @Test
+    void fizzBuzz_de_3_devrait_retourner_fizz() {
+        // GIVEN / WHEN
+<span class="fc" id="L41">        String resultat = FizzBuzz.de(3);</span>
+
+        // THEN
+<span class="fc" id="L44">        assertThat(resultat).isEqualTo(&quot;Fizz&quot;);</span>
+<span class="fc" id="L45">    }</span>
+
+    @Test
+    void fizzBuzz_de_5_devrait_retourner_buzz() {
+        // GIVEN / WHEN
+<span class="fc" id="L50">        String resultat = FizzBuzz.de(5);</span>
+
+        // THEN
+<span class="fc" id="L53">        assertThat(resultat).isEqualTo(&quot;Buzz&quot;);</span>
+<span class="fc" id="L54">    }</span>
+
+    @Test
+    void fizzBuzz_de_9_devrait_retourner_fizz() {
+        // GIVEN / WHEN
+<span class="fc" id="L59">        String resultat = FizzBuzz.de(9);</span>
+
+        // THEN
+<span class="fc" id="L62">        assertThat(resultat).isEqualTo(&quot;Fizz&quot;);</span>
+<span class="fc" id="L63">    }</span>
+
+    @Test
+    void fizzBuzz_de_10_devrait_retourner_buzz() {
+        // GIVEN / WHEN
+<span class="fc" id="L68">        String resultat = FizzBuzz.de(10);</span>
+
+        // THEN
+<span class="fc" id="L71">        assertThat(resultat).isEqualTo(&quot;Buzz&quot;);</span>
+<span class="fc" id="L72">    }</span>
+
+    @Test
+    void fizzBuzz_de_15_devrait_retourner_fizz_buzz() {
+        // GIVEN / WHEN
+<span class="fc" id="L77">        String resultat = FizzBuzz.de(15);</span>
+
+        // THEN
+<span class="fc" id="L80">        assertThat(resultat).isEqualTo(&quot;FizzBuzz&quot;);</span>
+<span class="fc" id="L81">    }</span>
+
+    @ParameterizedTest(name = &quot;Pour nbre = {0}, attendu = {1}&quot;)
+    @CsvSource({
+            &quot;1, 1&quot;,
+            &quot;2, 2&quot;,
+            &quot;3, Fizz&quot;,
+            &quot;4, 4&quot;,
+            &quot;5, Buzz&quot;,
+            &quot;6, Fizz&quot;,
+            &quot;7, 7&quot;,
+            &quot;8, 8&quot;,
+            &quot;9, Fizz&quot;,
+            &quot;10, Buzz&quot;,
+            &quot;11, 11&quot;,
+            &quot;12, Fizz&quot;,
+            &quot;13, 13&quot;,
+            &quot;14, 14&quot;,
+            &quot;15, FizzBuzz&quot;,
+            &quot;16, 16&quot;,
+            &quot;17, 17&quot;,
+            &quot;18, Fizz&quot;,
+            &quot;19, 19&quot;,
+            &quot;20, Buzz&quot;
+    })
+    void test_parametre_sur_20_valeurs(int nbre, String attendu) {
+        // WHEN
+<span class="fc" id="L108">        String resultat = FizzBuzz.de(nbre);</span>
+
+        // THEN
+<span class="fc" id="L111">        assertThat(resultat).isEqualTo(attendu);</span>
+<span class="fc" id="L112">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.15.202606040825</span></div></body></html>

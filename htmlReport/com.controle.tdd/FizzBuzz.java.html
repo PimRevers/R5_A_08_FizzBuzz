@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FizzBuzz.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">test.exec</a> &gt; <a href="index.source.html" class="el_package">com.controle.tdd</a> &gt; <span class="el_source">FizzBuzz.java</span></div><h1>FizzBuzz.java</h1><pre class="source lang-java linenums">package com.controle.tdd;
+
+<span class="nc" id="L3">public class FizzBuzz {</span>
+    /*
+    On vérifie d'abord que le nombre est divisible par 3 et 5 puis on vérifie si le nombre est divisible par 3 ou par 5
+    et on retourne le nombres pour les autres qui sont non divisible par 3 ou par 5
+     */
+
+    public static String de(int nbre) {
+
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        if (nbre % 15 == 0) {</span>
+<span class="fc" id="L12">            return &quot;FizzBuzz&quot;;</span>
+        }
+
+<span class="fc bfc" id="L15" title="All 2 branches covered.">        else if (nbre % 3 == 0) {</span>
+<span class="fc" id="L16">            return &quot;Fizz&quot;;</span>
+        }
+
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        else if (nbre % 5 == 0) {</span>
+<span class="fc" id="L20">            return &quot;Buzz&quot;;</span>
+        }
+
+<span class="fc" id="L23">        return String.valueOf(nbre);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.15.202606040825</span></div></body></html>
