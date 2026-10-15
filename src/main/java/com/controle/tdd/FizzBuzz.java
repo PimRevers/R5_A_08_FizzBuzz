@@ -6,8 +6,12 @@ public class FizzBuzz {
         if (nbre % 3 != 0 && nbre % 5 != 0) {
             return String.valueOf(nbre);
         }
-        if (nbre == 3){
+        if (nbre == 3) {
             return "Fizz";
+        }
+
+        if (nbre == 5) {
+            return "Buzz";
         }
         return "";
     }
