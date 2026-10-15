@@ -17,6 +17,11 @@ package com.controle.tdd;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -75,5 +80,34 @@ public class FizzBuzzTest {
         assertThat(resultat).isEqualTo("FizzBuzz");
     }
 
+    @ParameterizedTest(name = "Pour nbre = {0}, attendu = {1}")
+    @CsvSource({
+            "1, 1",
+            "2, 2",
+            "3, Fizz",
+            "4, 4",
+            "5, Buzz",
+            "6, Fizz",
+            "7, 7",
+            "8, 8",
+            "9, Fizz",
+            "10, Buzz",
+            "11, 11",
+            "12, Fizz",
+            "13, 13",
+            "14, 14",
+            "15, FizzBuzz",
+            "16, 16",
+            "17, 17",
+            "18, Fizz",
+            "19, 19",
+            "20, Buzz"
+    })
+    void test_parametre_sur_20_valeurs(int nbre, String attendu) {
+        // WHEN
+        String resultat = FizzBuzz.de(nbre);
 
+        // THEN
+        assertThat(resultat).isEqualTo(attendu);
+    }
 }
