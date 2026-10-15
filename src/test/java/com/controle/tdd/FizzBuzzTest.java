@@ -48,5 +48,14 @@ public class FizzBuzzTest {
         assertThat(resultat).isEqualTo("Buzz");
     }
 
+    @Test
+    void fizzBuzz_de_9_devrait_retourner_fizz() {
+        // GIVEN / WHEN
+        String resultat = FizzBuzz.de(9);
+
+        // THEN
+        assertThat(resultat).isEqualTo("Fizz");
+    }
+
 
 }
