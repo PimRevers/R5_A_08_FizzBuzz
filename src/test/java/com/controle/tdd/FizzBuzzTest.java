@@ -18,9 +18,17 @@ package com.controle.tdd;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 public class FizzBuzzTest {
     @Test
     void fizzBuzz_de_1_devrait_retourner_1() {
-        Assertions.fail("echec cycle 1");
+        // GIVEN / WHEN
+        String resultat = FizzBuzz.de(1);
+
+        // THEN
+        assertThat(resultat).isEqualTo("1");
     }
+
+
 }
